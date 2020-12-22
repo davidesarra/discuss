@@ -28,6 +28,12 @@ postgres-shell:
 	docker exec -it docker-postgres-$(POSTGRES_VERSION) \
 		psql -h localhost -U postgres -d postgres
 
+ecto-create-migration:
+	mix ecto.gen.migration $(MIGRATION_NAME)
+
+ecto-migrate:
+	mix ecto.migrate
+
 project-scaffolding:
 	mix phx.new $(PROJECT)
 
