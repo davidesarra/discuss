@@ -48,6 +48,6 @@ defmodule DiscussWeb.TopicController do
 
     conn
     |> put_flash(:info, "Topic deleted")
-    |> redirect(to: topic_path(conn, :index))
+    |> redirect(to: Routes.topic_path(conn, :index))
   end
 end
