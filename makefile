@@ -1,9 +1,16 @@
+ENV_PATH=.env
 PHOENIX_VERSION=1.2.5
 POSTGRES_VERSION=13.1
+
+include $(ENV_PATH)
+export $(shell sed 's/=.*//' $(ENV_PATH))
 
 install:
 	mix local.rebar --force && \
 	mix deps.get
+
+run:
+	mix phx.server
 
 tests:
 	mix test
@@ -27,9 +34,6 @@ postgres-run:
 postgres-shell:
 	docker exec -it docker-postgres-$(POSTGRES_VERSION) \
 		psql -h localhost -U postgres -d postgres
-
-ecto-create-migration:
-	mix ecto.gen.migration $(MIGRATION_NAME)
 
 ecto-migrate:
 	mix ecto.migrate
