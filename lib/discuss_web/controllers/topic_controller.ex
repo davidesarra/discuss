@@ -16,7 +16,11 @@ defmodule DiscussWeb.TopicController do
   end
 
   def create(conn, %{"topic" => topic_attrs}) do
-    changeset = Topic.changeset(%Topic{}, topic_attrs)
+    changeset =
+      conn.assigns.user
+      |> Ecto.build_assoc(:topics)
+      |> Topic.changeset(topic_attrs)
+
     case Discuss.Repo.insert(changeset) do
       {:ok, _topic} ->
         conn
