@@ -25,6 +25,7 @@ defmodule DiscussWeb.Router do
 
     get "/:provider", AuthController, :request
     get "/:provider/callback", AuthController, :callback
+    delete "/sign_out", AuthController, :sign_out
   end
 
   # Other scopes may use custom stacks.
