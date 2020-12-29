@@ -35,7 +35,10 @@ postgres-shell:
 	docker exec -it docker-postgres-$(POSTGRES_VERSION) \
 		psql -h localhost -U postgres -d postgres
 
-ecto-migrate:
+database-create:
+	mix ecto.create
+
+database-migrate:
 	mix ecto.migrate
 
 project-scaffolding:
