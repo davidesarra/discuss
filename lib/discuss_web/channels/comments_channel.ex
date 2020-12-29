@@ -7,7 +7,7 @@ defmodule DiscussWeb.CommentsChannel do
     topic =
       Topic
       |> Discuss.Repo.get(topic_id)
-      |> Discuss.Repo.preload(:comments)
+      |> Discuss.Repo.preload(comments: [:user])
     socket = assign(socket, :topic, topic)
     {:ok, %{comments: topic.comments}, socket}
   end
