@@ -1,10 +1,14 @@
 <h5><%= @topic.title %></h5>
 
-<div class="input-field">
-    <textarea class="materialize-textarea"></textarea>
-    <button class="btn">Add comment</button>
-    <ul class="collection"></ul>
-</div>
+<%= if @conn.assigns.user do %>
+    <div class="input-field">
+        <textarea class="materialize-textarea"></textarea>
+        <button class="btn">Add comment</button>
+        <ul class="collection"></ul>
+    </div>
+<%= else %>
+    <div>Sign in to leave a comment</div>
+<%= end %>
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
