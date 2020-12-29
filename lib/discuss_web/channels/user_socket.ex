@@ -21,7 +21,7 @@ defmodule DiscussWeb.UserSocket do
     # max_age: 1209600 is equivalent to two weeks in seconds
     case Phoenix.Token.verify(socket, "user socket", token, max_age: 1209600) do
       {:ok, user_id} ->
-        {:ok, assign(socket, :user, user_id)}
+        {:ok, assign(socket, :user_id, user_id)}
       {:error, _reason} ->
         :error
     end
