@@ -2,6 +2,8 @@
 
 Phoenix web app developed while learning Elixir.
 
+![App demo](docs/demo.gif)
+
 ## Development
 
 To start your Phoenix server:
